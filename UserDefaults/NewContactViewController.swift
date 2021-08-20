@@ -15,32 +15,43 @@ protocol NewContactViewControllerDelegate {
 
 class NewContactViewController: UIViewController {
 
+    @IBOutlet var doneButton: UIBarButtonItem!
+    @IBOutlet var firstNameTextField: UITextField!
+    @IBOutlet var lastNameTextField: UITextField!
     
     var delegate: NewContactViewControllerDelegate!
-    
-    
-    
-    
-    
-    
-    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        firstNameTextField.addTarget(
+            self,
+            action: #selector(firstNameTextFieldDidChanged),
+            for: .editingChanged
+        )
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
+        saveAndExit()
     }
-    */
 
+    @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {
+       dismiss(animated: true)
+    }
+    
+    @objc private func firstNameTextFieldDidChanged() {
+        guard let firstName = firstNameTextField.text  else { return }
+        doneButton.isEnabled = !firstName.isEmpty ? true : false 
+    }
+
+    private func  saveAndExit() {
+        guard let firstName = firstNameTextField.text else {return}
+        guard let lastName = lastNameTextField.text else {return}
+        delegate.saveContact("\(firstName) \(lastName)")
+        dismiss(animated: true)
+    }
+    
+    
 }

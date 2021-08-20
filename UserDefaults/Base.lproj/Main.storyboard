@@ -96,6 +96,11 @@
                     <navigationItem key="navigationItem" title="Add" id="4YF-5U-27T">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="NZQ-cU-v8t"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="doneButton" destination="NZQ-cU-v8t" id="VfB-fQ-Aad"/>
+                        <outlet property="firstNameTextField" destination="IUY-xn-bwC" id="9Bd-xV-FjI"/>
+                        <outlet property="lastNameTextField" destination="DCi-I4-JS3" id="2CU-a2-Brc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rjd-lL-qfd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
