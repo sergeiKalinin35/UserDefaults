@@ -18,7 +18,10 @@ class ContactListViewController: UIViewController {
        override func viewDidLoad() {
         super.viewDidLoad()
         // если что то есть в UserDefault извлекаем и отоброжаем во вью
-        
+        if let contactName = UserDefaults.standard.value(forKey: "ContactName") {
+            //принудительное извлечение опционала знаем что тип данных string as!
+            contacts.append(contactName as? String ?? "") 
+        }
         
         
         
@@ -54,6 +57,14 @@ extension ContactListViewController: UITableViewDelegate {
         if editingStyle == .delete {
             contacts.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+            
+            // дополнительно удаляем данные с UserDefaults
+            UserDefaults.standard.removeObject(forKey: "ContactName")
+            
+            
+            
+            
         }
     }
     

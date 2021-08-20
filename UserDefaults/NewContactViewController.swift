@@ -49,9 +49,15 @@ class NewContactViewController: UIViewController {
     private func  saveAndExit() {
         guard let firstName = firstNameTextField.text else {return}
         guard let lastName = lastNameTextField.text else {return}
-        let fullName = "\(firstName) \(lastName)"
+        
+        
         // сохраняем данные   и потом извлекаем эти данные и отоброжаем на экране на основном экране в методе view didload
+        let fullName = "\(firstName) \(lastName)"
         UserDefaults.standard.set(fullName, forKey: "ContactName")
+       // проблема в том что отоброжаетмя только переиспользованные данные а не сохраняется новые
+        // решение сохранять массив с типом стирнг  извлекать тоже массив 
+        
+        
         delegate.saveContact(fullName)
         dismiss(animated: true)
     }
