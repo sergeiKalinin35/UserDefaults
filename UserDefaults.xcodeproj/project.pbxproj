@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		F45C64CF26D003780041A069 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C64CE26D003780041A069 /* AppDelegate.swift */; };
 		F45C64D126D003780041A069 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C64D026D003780041A069 /* SceneDelegate.swift */; };
-		F45C64D326D003780041A069 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C64D226D003780041A069 /* ViewController.swift */; };
+		F45C64D326D003780041A069 /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C64D226D003780041A069 /* ContactListViewController.swift */; };
 		F45C64D626D003780041A069 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F45C64D426D003780041A069 /* Main.storyboard */; };
 		F45C64D826D0037A0041A069 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F45C64D726D0037A0041A069 /* Assets.xcassets */; };
 		F45C64DB26D0037A0041A069 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F45C64D926D0037A0041A069 /* LaunchScreen.storyboard */; };
+		F45C64E326D00D150041A069 /* NewContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C64E226D00D150041A069 /* NewContactViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F45C64CB26D003780041A069 /* UserDefaults.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UserDefaults.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F45C64CE26D003780041A069 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F45C64D026D003780041A069 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F45C64D226D003780041A069 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F45C64D226D003780041A069 /* ContactListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewController.swift; sourceTree = "<group>"; };
 		F45C64D526D003780041A069 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F45C64D726D0037A0041A069 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F45C64DA26D0037A0041A069 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F45C64DC26D0037A0041A069 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F45C64E226D00D150041A069 /* NewContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewContactViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +60,9 @@
 			children = (
 				F45C64CE26D003780041A069 /* AppDelegate.swift */,
 				F45C64D026D003780041A069 /* SceneDelegate.swift */,
-				F45C64D226D003780041A069 /* ViewController.swift */,
+				F45C64D226D003780041A069 /* ContactListViewController.swift */,
 				F45C64D426D003780041A069 /* Main.storyboard */,
+				F45C64E226D00D150041A069 /* NewContactViewController.swift */,
 				F45C64D726D0037A0041A069 /* Assets.xcassets */,
 				F45C64D926D0037A0041A069 /* LaunchScreen.storyboard */,
 				F45C64DC26D0037A0041A069 /* Info.plist */,
@@ -137,8 +140,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F45C64D326D003780041A069 /* ViewController.swift in Sources */,
+				F45C64D326D003780041A069 /* ContactListViewController.swift in Sources */,
 				F45C64CF26D003780041A069 /* AppDelegate.swift in Sources */,
+				F45C64E326D00D150041A069 /* NewContactViewController.swift in Sources */,
 				F45C64D126D003780041A069 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
