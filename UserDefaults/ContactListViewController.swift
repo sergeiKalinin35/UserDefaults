@@ -17,6 +17,12 @@ class ContactListViewController: UIViewController {
     
        override func viewDidLoad() {
         super.viewDidLoad()
+        // если что то есть в UserDefault извлекаем и отоброжаем во вью
+        
+        
+        
+        
+        
         
     }
 

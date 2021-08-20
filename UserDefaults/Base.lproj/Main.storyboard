@@ -48,7 +48,7 @@
                         <barButtonItem key="backBarButtonItem" title="Cancel" id="nPf-hW-vF7"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="XD7-rC-SmR">
                             <connections>
-                                <segue destination="MId-1u-97Z" kind="show" id="DFk-PY-Ure"/>
+                                <segue destination="MId-1u-97Z" kind="push" id="AMw-JY-VPb"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -60,7 +60,7 @@
             </objects>
             <point key="canvasLocation" x="477" y="125"/>
         </scene>
-        <!--Add-->
+        <!--New Contact-->
         <scene sceneID="2p9-SL-IpL">
             <objects>
                 <viewController id="MId-1u-97Z" customClass="NewContactViewController" customModule="UserDefaults" customModuleProvider="target" sceneMemberID="viewController">
@@ -69,15 +69,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="unp-QW-NM9">
-                                <rect key="frame" x="16" y="200" width="382" height="78"/>
+                                <rect key="frame" x="16" y="148" width="382" height="130"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IUY-xn-bwC">
-                                        <rect key="frame" x="0.0" y="0.0" width="382" height="31"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="57"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DCi-I4-JS3">
-                                        <rect key="frame" x="0.0" y="47" width="382" height="31"/>
+                                        <rect key="frame" x="0.0" y="73" width="382" height="57"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -93,8 +93,17 @@
                             <constraint firstItem="g8s-UY-1Tj" firstAttribute="bottom" secondItem="unp-QW-NM9" secondAttribute="bottom" constant="584" id="y3V-OB-gpK"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Add" id="4YF-5U-27T">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="NZQ-cU-v8t"/>
+                    <navigationItem key="navigationItem" title="New Contact" id="4YF-5U-27T">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="9uI-tW-bes">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="MId-1u-97Z" id="rug-WW-sqO"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="NZQ-cU-v8t">
+                            <connections>
+                                <action selector="doneButtonPressed:" destination="MId-1u-97Z" id="cMH-4r-SQF"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="doneButton" destination="NZQ-cU-v8t" id="VfB-fQ-Aad"/>
@@ -104,15 +113,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rjd-lL-qfd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1273.913043478261" y="124.55357142857142"/>
+            <point key="canvasLocation" x="1270" y="125"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nmk-wo-BEE">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="O8F-8y-2Bi" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="UyK-Vh-Fcm">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UyK-Vh-Fcm">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

@@ -43,13 +43,16 @@ class NewContactViewController: UIViewController {
     
     @objc private func firstNameTextFieldDidChanged() {
         guard let firstName = firstNameTextField.text  else { return }
-        doneButton.isEnabled = !firstName.isEmpty ? true : false 
+        doneButton.isEnabled = !firstName.isEmpty ? true : false
     }
 
     private func  saveAndExit() {
         guard let firstName = firstNameTextField.text else {return}
         guard let lastName = lastNameTextField.text else {return}
-        delegate.saveContact("\(firstName) \(lastName)")
+        let fullName = "\(firstName) \(lastName)"
+        // сохраняем данные   и потом извлекаем эти данные и отоброжаем на экране на основном экране в методе view didload
+        UserDefaults.standard.set(fullName, forKey: "ContactName")
+        delegate.saveContact(fullName)
         dismiss(animated: true)
     }
     
