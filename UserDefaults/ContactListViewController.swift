@@ -11,17 +11,24 @@ class ContactListViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
-    private var contacts: [String] = []
+   // private var contacts: [String] = []
     
-    
+    private var contacts: [Contact] = []
     
        override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        contacts = StorageManager.shared.fetchContacts()
+        
+        
+        
+        
         // если что то есть в UserDefault извлекаем и отоброжаем во вью
-        if let contactName = UserDefaults.standard.value(forKey: "ContactName") {
+     //   if let contactName = UserDefaults.standard.value(forKey: "ContactName") {
             //принудительное извлечение опционала знаем что тип данных string as!
-            contacts.append(contactName as? String ?? "") 
-        }
+     //       contacts.append(contactName as? String ?? "")
+      //  }
         
         
         
@@ -43,7 +50,15 @@ extension ContactListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = contacts[indexPath.row]
+       
+        
+        let contact = contacts[indexPath.row]
+        cell.textLabel?.text = contact.fullName
+    //    cell.textLabel?.text = contacts[indexPath.row]
+        
+        
+        
+        
         
         
         return cell
@@ -59,8 +74,9 @@ extension ContactListViewController: UITableViewDelegate {
             tableView.deleteRows(at: [indexPath], with: .automatic)
             
             
+            StorageManager.shared.delete(at: indexPath.row)
             // дополнительно удаляем данные с UserDefaults
-            UserDefaults.standard.removeObject(forKey: "ContactName")
+       //     UserDefaults.standard.removeObject(forKey: "ContactName")
             
             
             
@@ -71,7 +87,8 @@ extension ContactListViewController: UITableViewDelegate {
 }
 
 extension ContactListViewController: NewContactViewControllerDelegate {
-    func saveContact(_ contact:String) {
+   // func saveContact(_ contact:String) {
+    func saveContact(_ contact: Contact) {
         contacts.append(contact)
         tableView.reloadData()
     }
