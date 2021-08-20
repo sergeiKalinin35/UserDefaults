@@ -19,8 +19,8 @@ class ContactListViewController: UIViewController {
         super.viewDidLoad()
         
         
-        contacts = StorageManager.shared.fetchContacts()
-        
+       // contacts = StorageManager.shared.fetchContacts()
+        contacts = StorageManager.shared.fetchFromFile()
         
         
         
@@ -73,8 +73,8 @@ extension ContactListViewController: UITableViewDelegate {
             contacts.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
             
-            
-            StorageManager.shared.delete(at: indexPath.row)
+            StorageManager.shared.deleteFromFile(at: indexPath.row)
+           // StorageManager.shared.delete(at: indexPath.row)
             // дополнительно удаляем данные с UserDefaults
        //     UserDefaults.standard.removeObject(forKey: "ContactName")
             

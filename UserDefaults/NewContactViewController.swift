@@ -61,7 +61,10 @@ class NewContactViewController: UIViewController {
         
         
      //   StorageManager.shared.save(contact: contact.fullName)
-        StorageManager.shared.save(contact: contact)
+      //  StorageManager.shared.save(contact: contact) // data
+        
+        StorageManager.shared.saveTofile(with: contact)
+        
         
         
         

@@ -14,11 +14,24 @@ import Foundation
 class StorageManager {
     static let shared = StorageManager()
     
-    private init() {}
+  //  private init() {}
     
     private let userDefaults = UserDefaults.standard
     private let contactKey = "contacts"
-
+    
+    
+    // plist открываем finder переход к папке и копируем путь с консоли
+    private let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    // указать диретрорию по которой будет новый файл
+    private var archiveURL: URL
+    
+    private init() {
+       // print(documentDirectory) берем адрес
+        //  в этой директории  где находится и как найти
+        archiveURL = documentDirectory.appendingPathComponent("contacts").appendingPathExtension("plist")
+        
+    }
+    
     
     // для сохранения экземпляров модели
     
@@ -35,6 +48,18 @@ class StorageManager {
         
     }
     
+    // plist
+    func saveTofile(with contact: Contact) {
+        var contacts = fetchFromFile()
+        contacts.append(contact)
+        
+        guard let data = try? PropertyListEncoder().encode(contacts) else { return }
+        try? data.write(to: archiveURL, options: .noFileProtection)
+        
+        
+    }
+    
+    
     
    
     
@@ -45,6 +70,21 @@ class StorageManager {
         guard let contacts = try? JSONDecoder().decode([Contact].self, from: data) else { return [] }   // подписиваем под протокол в модели Codable
         return contacts // теперь идем работать в метод func save(contact: Contact)
     }
+    
+    
+    // plist
+     //данные восстанавливаются из файла а не из Юзердефолд
+    func fetchFromFile() -> [Contact] {
+        
+        guard let data = try? Data(contentsOf: archiveURL) else { return [] }
+        guard let contacts = try? PropertyListDecoder().decode([Contact].self, from: data) else { return [] }
+        return contacts
+    }
+    
+    
+    
+    
+    
     
     // удаление данных с типом data
     func delete(at index: Int) {
@@ -59,8 +99,19 @@ class StorageManager {
         // сохраняем данные в юсердефолдс
         userDefaults.set(data, forKey: contactKey)
         
+    }
+    
+    // plist delete
+    
+    func deleteFromFile(at index: Int) {
+        
+        var contacts = fetchContacts()
+        //есть массив удаляем из него элемент
+        contacts.remove(at: index)
         
         
+        guard let data = try? PropertyListEncoder().encode(contacts) else { return }
+        try? data.write(to: archiveURL, options: .noFileProtection)
         
         
     }
@@ -68,8 +119,31 @@ class StorageManager {
     
     
     
+    
+    
+    
+    
+    
+    
 }
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /*
 func save(contact: String) {
         // в любом случаи восстанавливаем массив первым делом
